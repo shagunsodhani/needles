@@ -9,4 +9,7 @@ sudo apt-get install linux-image-extra-$(uname -r)
 sudo apt-get update
 sudo apt-get install -y docker-engine
 sudo service docker start
-sudo ocker run hello-world
+sudo groupadd docker
+sudo gpasswd -a ${USER} docker
+sudo service docker restart
+docker run hello-world
