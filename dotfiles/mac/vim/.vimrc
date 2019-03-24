@@ -1,6 +1,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
+set encoding=utf-8
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -19,7 +21,7 @@ Plugin 'tpope/vim-fugitive'
 " Git plugin not hosted on GitHub
 Plugin 'git://git.wincent.com/command-t.git'
 " git repos on your local machine (i.e. when working on your own plugin)
-Plugin 'file:///home/gmarik/path/to/plugin'
+"Plugin 'file:///home/gmarik/path/to/plugin'
 " The sparkup vim script is in a subdirectory of this repo called vim.
 " Pass the path to set the runtimepath properly.
 Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -44,3 +46,46 @@ filetype plugin indent on    " required
 
 :set nu
 :set backspace=indent,eol,start
+
+Plugin 'tmhedberg/SimpylFold'
+Plugin 'vim-scripts/indentpython.vim'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'jnurmine/Zenburn'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'jistr/vim-nerdtree-tabs'
+Plugin 'kien/ctrlp.vim'
+Plugin 'davidhalter/jedi-vim'
+
+
+"These changes are taken from: https://realpython.com/vim-and-python-a-match-made-in-heaven/
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+
+" Enable folding with the spacebar
+nnoremap <space> za
+
+au BufNewFile,BufRead *.py
+    \ set tabstop=4 |
+    \ set softtabstop=4 |
+    \ set shiftwidth=4 |
+    \ set textwidth=79 |
+    \ set expandtab |
+    \ set autoindent |
+    \ set fileformat=unix
+
+highlight BadWhitespace ctermbg=red guibg=red
+au BufRead,BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+let python_highlight_all=1
+syntax on
+
+let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
