@@ -18,6 +18,8 @@ brew install tmux
 # https://docs.conda.io/projects/conda/en/latest/user-guide/install/macos.html
 brew install wget
 wget https://repo.anaconda.com/archive/Anaconda3-2020.07-MacOSX-x86_64.sh
+chmod +x Anaconda3-2020.07-MacOSX-x86_64.sh
+./Anaconda3-2020.07-MacOSX-x86_64.sh
 
 git clone git://github.com/scmbreeze/scm_breeze.git ~/.scm_breeze
 ~/.scm_breeze/install.sh
